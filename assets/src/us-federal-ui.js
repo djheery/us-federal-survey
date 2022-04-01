@@ -26,7 +26,7 @@ const US_FEDERAL_UI = (() => {
           selectors.answerContainer.innerHTML += `
           <div class="radio-btn-container radio-y-n">
             <label for="survey-question" class="survey-option">${q.options[i]}</label>
-            <input type="radio" name="survey-radio-btn" id="survey-radio-btn" class="survey-radio-btn" data-dnq="${q.DNQ[i]}">
+            <input type="radio" name="survey-radio-btn" id="survey-radio-btn" class="survey-radio-btn" data-dnq="${q.Qualifies[i]}">
           </div>
           `
         }
@@ -55,7 +55,7 @@ const US_FEDERAL_UI = (() => {
     displayFinalVerdict: (Q) => {
       selectors.questionContainer.innerHTML = ``
       selectors.answerContainer.innerHTML = ``
-      if(Q.DNQ.length >= 1) {
+      if(Q.Qualifies.length >= 1) {
         selectors.resultsContainer.innerHTML = `
         <div class="final-verdict-container">
           <p>The answers you have provided indicate that you <span class="fw-bold">should register for VAT</span>. Based on the answers provided the following reasons may be why we have come to this conclusion</p>
@@ -65,9 +65,9 @@ const US_FEDERAL_UI = (() => {
 
         `
         const reasons = document.querySelector('.reasons')
-        for(let i = 0; i < Q.DNQ.length; i++) {
+        for(let i = 0; i < Q.Qualifies.length; i++) {
           reasons.innerHTML += `
-            <li>${Q.DNQ[i].statement}</li>
+            <li>${Q.Qualifies[i].statement}</li>
           `
         }
       } else {

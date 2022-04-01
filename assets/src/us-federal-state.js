@@ -5,7 +5,12 @@ const US_FEDERAL_STATE = (() => {
     PQ: [],
     PA: [],
     Qualifies: [],
-    age: "UNDER_65"
+  }
+
+  const incomeRequirementState = {
+    age: null, 
+    spouseAge: null,
+    filingStatus: null
   }
 
   const brackets = {
@@ -13,10 +18,21 @@ const US_FEDERAL_STATE = (() => {
       under65: 12400,
       over65: 14050,
     },
-    marriedSeparate: 5,
     headOfHouse: {
-      under65:
-    }
+      under65: 18650,
+      over65: 20300,
+    },
+    marriedJoint: {
+      under65Both: 24800,
+      over65One: 26100,
+      over65Both: 27400 
+    },
+    widower: {
+      under65: 24800,
+      over65: 26100
+    },
+    marriedSeparate: 5,
+    selfEmployed: 400,
   }
 
   const questions = [
@@ -49,7 +65,7 @@ const US_FEDERAL_STATE = (() => {
       statement:''
     },
     {
-      id: 21,
+      id: 121,
       QC: 'Which age brackets is your spouse?',
       options: ['Under 65', 'Over 65'],
       selectBox: false,
@@ -146,9 +162,129 @@ const US_FEDERAL_STATE = (() => {
       options: ['Yes', 'No'],
       selectBox: false,
       input: false,
-      NQ: [11],
+      NQ: [12],
       Qualifies: [true, false],
       statement: 'If you are required to repay 2008 Home Buyers Credit, or some other recapture tax, you should file a Federal Tax Return'
+    },
+    {
+      id: 12, 
+      QC: 'Do you qualify for the First-Time Homebuyer Credit',
+      options: ['Yes', 'No'],
+      selectBox: false,
+      input: false,
+      NQ: [13],
+      Qualifies: [true, false],
+      statement: 'You may want to file if you qualify for the First-Time Homebuyer Credit'
+    },
+    {
+      id: 13, 
+      QC: 'Do you qualify for the Health Coverage Tax Credit',
+      options: ['Yes', 'No'],
+      selectBox: false,
+      input: false,
+      NQ: [14],
+      Qualifies: [true, false],
+      statement: 'You may want to file if you qualify for Health Coverage Tax Credit'
+    },
+    {
+      id: 15, 
+      QC: 'Have you overpaid in estimated tax?',
+      options: ['Yes', 'No'],
+      selectBox: false,
+      input: false,
+      NQ: [16],
+      Qualifies: [true, false],
+      statement: 'If you have overpaid in estimated tax you may want to file a tax return'
+    },
+    {
+      id: 16, 
+      QC: 'Do you qualify for a federal fuel tax credit?',
+      options: ['Yes', 'No'],
+      selectBox: false,
+      input: false,
+      NQ: [17],
+      Qualifies: [true, false],
+      statement: 'If you qualify for federal fuel tax credit you may want to file a tax return'
+    },
+    {
+      id: 17,
+      QC: 'Have taxes been withheld from your pay?',
+      options: ['Yes', 'No'],
+      selectBox: false,
+      input: false,
+      NQ: [18],
+      Qualifies: [true, false],
+      statement: 'If taxes have been withheld from your pay you may want to file a federal tax return'
+    },
+    {
+      id: 18,
+      QC: 'Do you qualify for Earned Income Tax Credit?',
+      options: ['Yes', 'No'],
+      selectBox: false,
+      input: false,
+      NQ: [19],
+      Qualifies: [true, false],
+      statement: 'If you qualify for Earned Income Tax Credit you may want to file a US federal tax return'
+    },
+    {
+      id: 19,
+      QC: 'Do you qualify for American Opportunity Tax Credit?',
+      options: ['Yes', 'No'],
+      selectBox: false,
+      input: false,
+      NQ: [20],
+      Qualifies: [true, false],
+      statement: 'If you qualify for American Opportunity tax credit you may want to file a US federal tax return'
+    },
+    {
+      id: 20,
+      QC: 'Do you have children and qualify for Child Tax Credit?',
+      options: ['Yes', 'No'],
+      selectBox: false,
+      input: false,
+      NQ: [21],
+      Qualifies: [true, false],
+      statement: 'If you qualify for Child Tax Credit you may want to file a US federal tax return'
+    },
+    {
+      id: 21,
+      QC: 'Do you have children?',
+      options: ['Yes', 'No'],
+      selectBox: false,
+      input: false,
+      NQ: [211, 22],
+      Qualifies: [false, false],
+      statement: ''
+    },
+    {
+      id: 211,
+      QC: 'Do you qualify for Child Tax Credit?',
+      options: ['Yes', 'No'],
+      selectBox: false,
+      input: false,
+      NQ: [22],
+      Qualifies: [true, false],
+      statement: 'If you qualify for Child Tax Credit you may want to file a US federal tax return'
+    },
+    {
+      id: 22,
+      QC: 'Have you adopted a child?',
+      options: ['Yes', 'No'],
+      selectBox: false,
+      input: false,
+      NQ: [221, 23],
+      Qualifies: [false, false],
+      statement: ''
+    },
+    {
+      id: 221,
+      QC: 'Do you qualify for Adoption Tax Credit',
+      options: ['Yes', 'No'],
+      selectBox: false,
+      input: false,
+      NQ: [-1],
+      Qualifies: [true, false],
+      statement: 'If you qualify for Child Tax Credit you may want to file a US federal tax return'
     },
   ]
 

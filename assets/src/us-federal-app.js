@@ -3,8 +3,8 @@ const US_FEDERAL_SURVEY_APP = (() => {
   const questions = US_FEDERAL_STATE.getQuestions()
   const ui = US_FEDERAL_UI.getSelectors()
   const loadEventListeners = () => {
-    ui.answerContainer.addEventListener('click', e => nextQuestion(e))
-    ui.btnContainer.addEventListener('click', checkQuestion)
+    ui.answerContainer.addEventListener('click', e => nextQuestion(e)) // Change this
+    ui.btnContainer.addEventListener('click', checkQuestion) // Add error Check
   }
 
   const checkQuestion = (e) => {
@@ -29,10 +29,6 @@ const US_FEDERAL_SURVEY_APP = (() => {
         US_FEDERAL_UI.displayFinalVerdict(nextQuestion)
       US_FEDERAL_UI.transitionIn()
     }, 800)
-  }
-
-  const previousQuestion = () => {
-
   }
 
   return {
